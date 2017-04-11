@@ -16,7 +16,7 @@ def open_and_read_file(file_path):
 
     return file_name
 
-input_text = open_and_read_file("green-eggs.txt")
+input_text = open_and_read_file("pledge.txt")
 
 def make_chains(text_string):
     """Takes input text as string; returns dictionary of markov chains.
@@ -60,21 +60,29 @@ def make_chains(text_string):
 
     #print make_chains(input_text)
 
+
 def make_text(chains):
     """Returns text from chains."""
 
     words = []
 
-    choice.(chains.keys())
+    dict_key = choice(chains.keys())
+    words.append(dict_key[0])
+    words.append(dict_key[1])
 
-    while True:
+    while dict_key in chains:
+        word_options = chains[dict_key]
+        # word options -> ["could", "with", "in"]
+        word = choice(word_options)
+        words.append(word)
+        dict_key = (words[-2], words[-1])
 
-
-    print words
+    #print words
+    #print dict_key
 
     # your code goes here
 
-    #return " ".join(words)
+    return " ".join(words)
 
 
 
@@ -86,7 +94,7 @@ input_path = "green-eggs.txt"
 # Get a Markov chain
 chains = make_chains(input_text)
 
-print chains
+# print chains
 
 # Produce random text
 random_text = make_text(chains)
